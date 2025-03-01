@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://beqiar7n43gdb"]
+
+[ext_resource type="Script" path="res://Settings/h_slider.gd" id="1_hrncy"]
+
+[node name="VolumeControl" type="HSlider"]
+offset_left = 548.0
+offset_top = -5.0
+offset_right = 1150.0
+offset_bottom = 29.0
+max_value = 1.0
+step = 0.001
+script = ExtResource("1_hrncy")
+
+[connection signal="value_changed" from="." to="." method="_on_value_changed"]
