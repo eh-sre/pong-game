@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://djldccfylkx2g"]
+[gd_scene load_steps=8 format=3 uid="uid://djldccfylkx2g"]
 
-[ext_resource type="Script" path="res://Settings/resolution_button.gd" id="1_rveob"]
 [ext_resource type="PackedScene" uid="uid://beqiar7n43gdb" path="res://Settings/volume_control.tscn" id="1_tkm2f"]
-[ext_resource type="Script" path="res://Settings/option_button.gd" id="2_sycrn"]
+[ext_resource type="Script" path="res://Settings/resolution_button.gd" id="2_sycrn"]
 [ext_resource type="Script" path="res://Settings/back_button.gd" id="4_2ciwp"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_vkpbm"]
@@ -23,135 +22,128 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -576.0
+offset_right = 576.0
+offset_bottom = 648.0
+grow_horizontal = 2
+stretch_mode = 0
+alignment_horizontal = 0
+alignment_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 62.0
-grow_horizontal = 2
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer"]
+layout_mode = 2
+size_flags_vertical = 4
 
-[node name="Buttons" type="VBoxContainer" parent="MarginContainer"]
+[node name="Buttons" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="TabContainer" type="TabContainer" parent="MarginContainer/Buttons"]
+[node name="TabContainer" type="TabContainer" parent="AspectRatioContainer/MarginContainer/Buttons"]
 layout_mode = 2
 size_flags_vertical = 4
-current_tab = 1
+current_tab = 2
 
-[node name="Controls" type="Button" parent="MarginContainer/Buttons/TabContainer"]
+[node name="Controls" type="Button" parent="AspectRatioContainer/MarginContainer/Buttons/TabContainer"]
 visible = false
 layout_mode = 2
 text = "Controls"
 flat = true
 metadata/_tab_index = 0
 
-[node name="Video" type="Button" parent="MarginContainer/Buttons/TabContainer"]
+[node name="Video" type="Button" parent="AspectRatioContainer/MarginContainer/Buttons/TabContainer"]
+visible = false
 layout_mode = 2
 text = "Video"
 flat = true
 metadata/_tab_index = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Buttons/TabContainer/Video"]
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer/Buttons/TabContainer/Video"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = 34.0
 offset_right = 1151.0
 offset_bottom = 613.0
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/Buttons/TabContainer/Video/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="AspectRatioContainer/MarginContainer/Buttons/TabContainer/Video/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="ResolutionLabel" type="Label" parent="MarginContainer/Buttons/TabContainer/Video/VBoxContainer"]
+[node name="ResolutionLabel" type="Label" parent="AspectRatioContainer/MarginContainer/Buttons/TabContainer/Video/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 20
 text = "     Resolution"
 
-[node name="ResolutionMenu" type="MenuButton" parent="MarginContainer/Buttons/TabContainer/Video/VBoxContainer/ResolutionLabel"]
-visible = false
-layout_mode = 0
-offset_left = 997.0
-offset_right = 1078.0
-offset_bottom = 31.0
-scale = Vector2(1.23999, 1)
-flat = false
-item_count = 5
-popup/item_0/text = "1280x720"
-popup/item_1/id = 3
-popup/item_1/disabled = true
-popup/item_1/separator = true
-popup/item_2/text = "1280x1024"
-popup/item_2/id = 1
-popup/item_3/id = 4
-popup/item_3/disabled = true
-popup/item_3/separator = true
-popup/item_4/text = "1920x1280"
-popup/item_4/id = 2
-script = ExtResource("1_rveob")
-
-[node name="ResolutionOption" type="OptionButton" parent="MarginContainer/Buttons/TabContainer/Video/VBoxContainer/ResolutionLabel"]
+[node name="ResolutionOption" type="OptionButton" parent="AspectRatioContainer/MarginContainer/Buttons/TabContainer/Video/VBoxContainer/ResolutionLabel"]
 layout_mode = 0
 offset_left = 985.0
 offset_top = -1.0
 offset_right = 1099.0
 offset_bottom = 30.0
 selected = 0
-item_count = 5
-popup/item_0/text = "1280x720"
+item_count = 7
+popup/item_0/text = "1152x648"
 popup/item_1/id = 1
 popup/item_1/separator = true
-popup/item_2/text = "1280x1080"
+popup/item_2/text = "1280x720"
 popup/item_2/id = 2
 popup/item_3/id = 3
 popup/item_3/separator = true
-popup/item_4/text = "1920x1080"
+popup/item_4/text = "1280x1080"
 popup/item_4/id = 4
+popup/item_5/id = 5
+popup/item_5/separator = true
+popup/item_6/text = "1920x1080"
+popup/item_6/id = 6
 script = ExtResource("2_sycrn")
 
-[node name="HSeparator2" type="HSeparator" parent="MarginContainer/Buttons/TabContainer/Video/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="AspectRatioContainer/MarginContainer/Buttons/TabContainer/Video/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="FullscreenLabel" type="Label" parent="MarginContainer/Buttons/TabContainer/Video/VBoxContainer"]
+[node name="FullscreenLabel" type="Label" parent="AspectRatioContainer/MarginContainer/Buttons/TabContainer/Video/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 20
 text = "     FullScreen"
 
-[node name="CheckBox" type="CheckBox" parent="MarginContainer/Buttons/TabContainer/Video/VBoxContainer/FullscreenLabel"]
+[node name="CheckBox" type="CheckBox" parent="AspectRatioContainer/MarginContainer/Buttons/TabContainer/Video/VBoxContainer/FullscreenLabel"]
 layout_mode = 0
 offset_left = 1027.0
 offset_top = 1.0
 offset_right = 1051.0
 offset_bottom = 25.0
 
-[node name="HSeparator3" type="HSeparator" parent="MarginContainer/Buttons/TabContainer/Video/VBoxContainer"]
+[node name="HSeparator3" type="HSeparator" parent="AspectRatioContainer/MarginContainer/Buttons/TabContainer/Video/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Gamma" type="Label" parent="MarginContainer/Buttons/TabContainer/Video/VBoxContainer"]
+[node name="Gamma" type="Label" parent="AspectRatioContainer/MarginContainer/Buttons/TabContainer/Video/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 20
 text = "     Gamma"
 
-[node name="HSeparator4" type="HSeparator" parent="MarginContainer/Buttons/TabContainer/Video/VBoxContainer"]
+[node name="HSeparator4" type="HSeparator" parent="AspectRatioContainer/MarginContainer/Buttons/TabContainer/Video/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Audio" type="Button" parent="MarginContainer/Buttons/TabContainer"]
-visible = false
+[node name="Audio" type="Button" parent="AspectRatioContainer/MarginContainer/Buttons/TabContainer"]
 layout_mode = 2
 text = "Audio"
 flat = true
 metadata/_tab_index = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Buttons/TabContainer/Audio"]
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer/Buttons/TabContainer/Audio"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -165,17 +157,17 @@ offset_bottom = 353.36
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/Buttons/TabContainer/Audio/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="AspectRatioContainer/MarginContainer/Buttons/TabContainer/Audio/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 theme_override_styles/separator = SubResource("StyleBoxLine_vkpbm")
 
-[node name="MasterLabel" type="Label" parent="MarginContainer/Buttons/TabContainer/Audio/VBoxContainer"]
+[node name="MasterLabel" type="Label" parent="AspectRatioContainer/MarginContainer/Buttons/TabContainer/Audio/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "     Master"
 
-[node name="MasterVolume" parent="MarginContainer/Buttons/TabContainer/Audio/VBoxContainer/MasterLabel" instance=ExtResource("1_tkm2f")]
+[node name="MasterVolume" parent="AspectRatioContainer/MarginContainer/Buttons/TabContainer/Audio/VBoxContainer/MasterLabel" instance=ExtResource("1_tkm2f")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.477
@@ -188,17 +180,17 @@ offset_right = 571.45
 offset_bottom = 16.384
 bus_name = "Master"
 
-[node name="HSeparator2" type="HSeparator" parent="MarginContainer/Buttons/TabContainer/Audio/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="AspectRatioContainer/MarginContainer/Buttons/TabContainer/Audio/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 theme_override_styles/separator = SubResource("StyleBoxLine_6s4w1")
 
-[node name="MusicLabel" type="Label" parent="MarginContainer/Buttons/TabContainer/Audio/VBoxContainer"]
+[node name="MusicLabel" type="Label" parent="AspectRatioContainer/MarginContainer/Buttons/TabContainer/Audio/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "     Music"
 
-[node name="MusicVolume" parent="MarginContainer/Buttons/TabContainer/Audio/VBoxContainer/MusicLabel" instance=ExtResource("1_tkm2f")]
+[node name="MusicVolume" parent="AspectRatioContainer/MarginContainer/Buttons/TabContainer/Audio/VBoxContainer/MusicLabel" instance=ExtResource("1_tkm2f")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.477
@@ -211,18 +203,18 @@ offset_right = 571.45
 offset_bottom = 16.384
 bus_name = "Music"
 
-[node name="HSeparator3" type="HSeparator" parent="MarginContainer/Buttons/TabContainer/Audio/VBoxContainer"]
+[node name="HSeparator3" type="HSeparator" parent="AspectRatioContainer/MarginContainer/Buttons/TabContainer/Audio/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 theme_override_styles/separator = SubResource("StyleBoxLine_6s4w1")
 
-[node name="SFXLabel" type="Label" parent="MarginContainer/Buttons/TabContainer/Audio/VBoxContainer"]
+[node name="SFXLabel" type="Label" parent="AspectRatioContainer/MarginContainer/Buttons/TabContainer/Audio/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "     SFX
 "
 
-[node name="SFXVolume" parent="MarginContainer/Buttons/TabContainer/Audio/VBoxContainer/SFXLabel" instance=ExtResource("1_tkm2f")]
+[node name="SFXVolume" parent="AspectRatioContainer/MarginContainer/Buttons/TabContainer/Audio/VBoxContainer/SFXLabel" instance=ExtResource("1_tkm2f")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.477
@@ -235,19 +227,20 @@ offset_right = 571.45
 offset_bottom = 16.89
 bus_name = "SFX"
 
-[node name="HSeparator4" type="HSeparator" parent="MarginContainer/Buttons/TabContainer/Audio/VBoxContainer"]
+[node name="HSeparator4" type="HSeparator" parent="AspectRatioContainer/MarginContainer/Buttons/TabContainer/Audio/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 theme_override_styles/separator = SubResource("StyleBoxLine_6s4w1")
 
-[node name="BackButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1107.0
-offset_right = 1152.0
-offset_bottom = 31.0
+[node name="BackButton" type="Button" parent="AspectRatioContainer"]
+custom_minimum_size = Vector2(45, 32)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
 shortcut = SubResource("Shortcut_puvkw")
 text = "Back"
 script = ExtResource("4_2ciwp")
 
-[connection signal="about_to_popup" from="MarginContainer/Buttons/TabContainer/Video/VBoxContainer/ResolutionLabel/ResolutionMenu" to="MarginContainer/Buttons/TabContainer/Video/VBoxContainer/ResolutionLabel/ResolutionMenu" method="_on_about_to_popup"]
-[connection signal="pressed" from="BackButton" to="BackButton" method="_on_pressed"]
+[connection signal="item_selected" from="AspectRatioContainer/MarginContainer/Buttons/TabContainer/Video/VBoxContainer/ResolutionLabel/ResolutionOption" to="AspectRatioContainer/MarginContainer/Buttons/TabContainer/Video/VBoxContainer/ResolutionLabel/ResolutionOption" method="_on_item_selected"]
+[connection signal="pressed" from="AspectRatioContainer/BackButton" to="AspectRatioContainer/BackButton" method="_on_pressed"]

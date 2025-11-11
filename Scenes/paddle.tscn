@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://ivwnxfxi8fh0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rripy"]
+size = Vector2(20, 142)
+
+[node name="Paddle" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 80.5)
+shape = SubResource("RectangleShape2D_rripy")
+one_way_collision = true

@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dho43v5fwqfc5"]
+[gd_scene load_steps=2 format=3 uid="uid://ismbpqe2xpqq"]
 
-[ext_resource type="Script" path="res://Settings/h_slider.gd" id="1_hrncy"]
+[ext_resource type="Script" path="res://Settings/volume_control.gd" id="1_hrncy"]
 
 [node name="VolumeControl" type="HSlider"]
 offset_left = 548.0

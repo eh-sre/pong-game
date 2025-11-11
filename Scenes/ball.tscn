@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg7624jyw23c7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_25osk"]
+
+[node name="Ball" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_25osk")
+one_way_collision = true
