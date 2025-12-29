@@ -1,17 +1,16 @@
-extends MenuButton
-
-var popup = get_popup()
+extends OptionButton
 
 
-func _ready():
-	text = str(get_popup().get_item_text(0))
+#func _on_item_selected(index):
+	#var window = get_window()
+	#var extracted_string = get_item_text(index).split("x")
+	#var win_size = Vector2i(int(extracted_string[0]), int(extracted_string[1]))
+	#print(window.get_size())
+	#window.set_size(win_size)
+	#window.move_to_center()
 
-func _process(delta):
-	popup.id_pressed.connect(_on_menu_button_pressed)
-	
-
-func _on_menu_button_pressed(id: int):
-	#get_popup().set_focused_item(0)
-	#get_popup().set_item_id(id, 0)
-	print(id)
-	text = popup.get_item_text(popup.get_item_index(id))
+func _on_item_selected(index):
+	var extracted_string = get_item_text(index).split("x")
+	var new_size = Vector2i(int(extracted_string[0]), int(extracted_string[1]))
+	print(new_size)
+	get_window().size = new_size
