@@ -1,48 +1,28 @@
 [gd_scene load_steps=5 format=3 uid="uid://dufl45af3uaya"]
 
-[ext_resource type="Script" path="res://Scenes/main.gd" id="1_dn5vw"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5d7a"]
-size = Vector2(20, 100)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7f7f"]
-size = Vector2(20, 20)
+[ext_resource type="PackedScene" uid="uid://ivwnxfxi8fh0" path="res://Scenes/paddle.tscn" id="1_7re51"]
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_8rpgx"]
+[ext_resource type="PackedScene" uid="uid://cg7624jyw23c7" path="res://Scenes/ball.tscn" id="2_lxtxj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q6j7g"]
 size = Vector2(1152, 20)
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_dn5vw")
-
-[node name="PlayerPaddle" type="CharacterBody2D" parent="."]
-position = Vector2(50, 324)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerPaddle"]
-shape = SubResource("RectangleShape2D_h5d7a")
-
-[node name="OpponentPaddle" type="CharacterBody2D" parent="."]
-position = Vector2(1102, 324)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OpponentPaddle"]
-shape = SubResource("RectangleShape2D_h5d7a")
-
-[node name="Ball" type="RigidBody2D" parent="."]
-position = Vector2(576, 324)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
-shape = SubResource("RectangleShape2D_m7f7f")
+script = ExtResource("1_8rpgx")
 
 [node name="TopWall" type="StaticBody2D" parent="."]
 position = Vector2(576, -10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall"]
 shape = SubResource("RectangleShape2D_q6j7g")
+one_way_collision = true
 
 [node name="BottomWall" type="StaticBody2D" parent="."]
 position = Vector2(576, 658)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWall"]
 shape = SubResource("RectangleShape2D_q6j7g")
+one_way_collision = true
 
 [node name="PlayerScore" type="Label" parent="."]
 offset_left = 476.0
@@ -57,3 +37,12 @@ offset_top = 20.0
 offset_right = 676.0
 offset_bottom = 43.0
 text = "0"
+
+[node name="PlayerPaddle" parent="." instance=ExtResource("1_7re51")]
+position = Vector2(192, 324)
+
+[node name="OpponentPaddle" parent="." instance=ExtResource("1_7re51")]
+position = Vector2(960, 324)
+
+[node name="Ball" parent="." instance=ExtResource("2_lxtxj")]
+position = Vector2(576, 324)
