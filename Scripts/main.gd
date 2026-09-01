@@ -1,6 +1,7 @@
 extends Node2D
 
-var ball_direction = Vector2(0, 1)
+var x_direction = -1
+var ball_direction = Vector2(x_direction, -1)
 @onready var o_paddle = $OpponentPaddle
 @onready var p_paddle = $PlayerPaddle
 @onready var ball = $Ball
@@ -13,27 +14,32 @@ func _ready():
 
 func _process(delta):
 	# Ball movement
+	
 	ball.position += ball_direction * ball_speed * delta
 
 	# Player paddle movement
 	if Input.is_action_pressed("w"):
-		p_paddle.position.y -= paddle_speed * delta
+		if (p_paddle.position.y>70):
+			p_paddle.move(delta, -1)
 	if Input.is_action_pressed("s"):
-		p_paddle.position.y += paddle_speed * delta
+		if (p_paddle.position.y<576):
+			p_paddle.move(delta, 1)
 
 	# Opponent paddle movement (simple AI)
-	if ball.position.y > o_paddle.position.y:
-		o_paddle.position.y += paddle_speed * delta
-	if ball.position.y < o_paddle.position.y:
-		o_paddle.position.y -= paddle_speed * delta
-
+	if ball.position.x > 576 && abs(o_paddle.position.y-ball.position.y)>70:
+		if (ball.position.y > o_paddle.position.y) && (o_paddle.position.y<576):
+			o_paddle.move(delta, 1)
+		if (ball.position.y < o_paddle.position.y) && (o_paddle.position.y>70):
+			o_paddle.move(delta, -1)
+	elif (o_paddle.position.y>70 && o_paddle.position.y<576):
+			o_paddle.move_to_centre(delta)
 	# Wall collisions
 	if ball.position.y < 0 or ball.position.y > get_viewport().size.y:
 		ball_direction.y = -ball_direction.y
+		print(ball_direction)
+		
 
 	# Paddle collisions
-	if ball.get_node("Area2D").overlaps_body(p_paddle.get_node("Area2D")) or ball.get_node("Area2D").overlaps_body(o_paddle.get_node("Area2D")):
-		ball_direction.x = -ball_direction.x
 
 	# Score
 	if ball.position.x < 0:
@@ -45,4 +51,16 @@ func _process(delta):
 
 func reset_ball():
 	ball.position = get_viewport().size / 2
-	ball_direction = Vector2(-1, 0)
+	ball_speed=350
+	x_direction = -floor(x_direction)
+	ball_direction = Vector2(x_direction, -1)
+
+
+func _on_ball_hit():
+	x_direction = -x_direction
+	ball_direction.x = -ball_direction.x-0.1
+	print(ball_speed)
+
+
+func _on_ball_speed_timer_timeout():
+	ball_speed*=1.1

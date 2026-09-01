@@ -2,11 +2,14 @@ extends Node2D
 
 @export var paddle_speed = 300
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func move(delta, direction):
+	position.y += paddle_speed*delta*direction
+	print(position.y)
 
+func move_random(delta):
+	var direction = randi_range(-1, 1)
+	var modifier = randi_range(1, 6)
+	position.y += paddle_speed*delta*direction*modifier
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func move_to_centre(delta):
+	position.y = (324)
