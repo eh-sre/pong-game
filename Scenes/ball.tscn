@@ -6,19 +6,15 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_25osk"]
 radius = 9.20447
 
-[node name="Ball" type="Node2D"]
+[node name="Ball" type="CharacterBody2D"]
 script = ExtResource("1_u46rk")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.2, 1.2)
 shape = SubResource("CircleShape2D_25osk")
 debug_color = Color(0.957046, 1.92523e-07, 0.534683, 0.42)
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("1_5ct0t")
 region_rect = Rect2(20, 30, 20, 30)
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

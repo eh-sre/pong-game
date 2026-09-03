@@ -1,11 +1,24 @@
-extends Node2D
+extends CharacterBody2D
 
 @export var ball_speed = 300
 signal hit
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
+signal out_of_bounds
 
-func _on_area_2d_body_entered(body):
-	if body == get_parent().get_node("PlayerPaddle") or body == get_parent().get_node("OpponentPaddle"):
-		hit.emit()
+func _ready():
+	velocity = Vector2(ball_speed, 150)
+
+# Ball movement
+func _physics_process(delta):
+	var collision = move_and_collide(velocity*delta)
+	if collision:
+		var collider = collision.get_collider()
+		if collider.is_in_group("paddles"):
+			hit.emit()
+		elif collider.is_in_group("walls"):
+			position.y *= -1
+		# Paddle collisions
+		velocity = velocity.bounce(collision.get_normal())
+	
+	# Score
+	if position.x < 0 or position.x > get_viewport().size.x:
+		out_of_bounds.emit()

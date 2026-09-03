@@ -1,6 +1,7 @@
 extends "res://scripts/paddle.gd"
 
-func _process(delta):
+# Player paddle movement
+func _physics_process(delta):
 	if Input.is_action_pressed("w"):
 		if (position.y>70):
 			move(delta, -1)

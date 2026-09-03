@@ -1,38 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://dufl45af3uaya"]
+[gd_scene load_steps=7 format=3 uid="uid://dufl45af3uaya"]
 
 [ext_resource type="PackedScene" uid="uid://4h1bum3b5nsl" path="res://scenes/paddle.tscn" id="1_7re51"]
 [ext_resource type="Script" uid="uid://j5vi6j2r4sws" path="res://scripts/main.gd" id="1_8rpgx"]
 [ext_resource type="PackedScene" uid="uid://n2arjj1oxikb" path="res://scenes/ball.tscn" id="2_lxtxj"]
+[ext_resource type="PackedScene" uid="uid://b55nd0lqb3eh1" path="res://scenes/wall.tscn" id="2_tefeu"]
 [ext_resource type="Script" uid="uid://cu5yplm6q0el4" path="res://scripts/p_paddle.gd" id="3_jyhfs"]
 [ext_resource type="Script" uid="uid://3rmf1ewx7qdt" path="res://scripts/o_paddle.gd" id="4_tbgi4"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8gbba"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6j7g"]
-size = Vector2(1152, 20)
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jjvhh"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_8rpgx")
 
-[node name="TopWall" type="StaticBody2D" parent="."]
+[node name="TopWall" parent="." instance=ExtResource("2_tefeu")]
 position = Vector2(576, -10)
-collision_mask = 7
-physics_material_override = SubResource("PhysicsMaterial_8gbba")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall"]
-shape = SubResource("RectangleShape2D_q6j7g")
-one_way_collision = true
-
-[node name="BottomWall" type="StaticBody2D" parent="."]
-position = Vector2(576, 658)
-collision_mask = 7
-physics_material_override = SubResource("PhysicsMaterial_jjvhh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWall"]
-shape = SubResource("RectangleShape2D_q6j7g")
-one_way_collision = true
+[node name="BottomWall" parent="." instance=ExtResource("2_tefeu")]
+position = Vector2(576, 660)
 
 [node name="PlayerScore" type="Label" parent="."]
 offset_left = 476.0
