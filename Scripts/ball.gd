@@ -6,5 +6,6 @@ signal hit
 func _ready():
 	pass
 
-func _on_area_2d_area_entered(area):
-	hit.emit()
+func _on_area_2d_body_entered(body):
+	if body == get_parent().get_node("PlayerPaddle") or body == get_parent().get_node("OpponentPaddle"):
+		hit.emit()

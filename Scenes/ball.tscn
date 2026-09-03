@@ -10,8 +10,6 @@ radius = 9.20447
 script = ExtResource("1_u46rk")
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(1.2, 1.2)
@@ -23,4 +21,4 @@ scale = Vector2(1.25, 1.25)
 texture = ExtResource("1_5ct0t")
 region_rect = Rect2(20, 30, 20, 30)
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
