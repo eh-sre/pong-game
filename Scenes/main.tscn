@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dufl45af3uaya"]
 
-[ext_resource type="PackedScene" uid="uid://c13ryrfm326p3" path="res://Scenes/paddle.tscn" id="1_7re51"]
+[ext_resource type="PackedScene" uid="uid://4h1bum3b5nsl" path="res://Scenes/paddle.tscn" id="1_7re51"]
 [ext_resource type="Script" uid="uid://j5vi6j2r4sws" path="res://Scripts/main.gd" id="1_8rpgx"]
 [ext_resource type="PackedScene" uid="uid://n2arjj1oxikb" path="res://Scenes/ball.tscn" id="2_lxtxj"]
 
@@ -59,6 +59,6 @@ position = Vector2(576, 324)
 wait_time = 5.5
 autostart = true
 
-[connection signal="hit" from="Ball" to="." method="_on_ball_timer_timeout"]
 [connection signal="hit" from="Ball" to="." method="_on_ball_hit"]
+[connection signal="hit" from="Ball" to="." method="_on_ball_timer_timeout"]
 [connection signal="timeout" from="BallSpeedTimer" to="." method="_on_ball_speed_timer_timeout"]
