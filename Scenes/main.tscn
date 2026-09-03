@@ -51,6 +51,7 @@ position = Vector2(192, 324)
 
 [node name="OpponentPaddle" parent="." instance=ExtResource("1_7re51")]
 position = Vector2(960, 324)
+rotation = 3.14159
 
 [node name="Ball" parent="." instance=ExtResource("2_lxtxj")]
 position = Vector2(576, 324)
