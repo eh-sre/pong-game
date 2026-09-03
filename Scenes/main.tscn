@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dufl45af3uaya"]
+[gd_scene load_steps=9 format=3 uid="uid://dufl45af3uaya"]
 
-[ext_resource type="PackedScene" uid="uid://4h1bum3b5nsl" path="res://Scenes/paddle.tscn" id="1_7re51"]
-[ext_resource type="Script" uid="uid://j5vi6j2r4sws" path="res://Scripts/main.gd" id="1_8rpgx"]
-[ext_resource type="PackedScene" uid="uid://n2arjj1oxikb" path="res://Scenes/ball.tscn" id="2_lxtxj"]
+[ext_resource type="PackedScene" uid="uid://4h1bum3b5nsl" path="res://scenes/paddle.tscn" id="1_7re51"]
+[ext_resource type="Script" uid="uid://j5vi6j2r4sws" path="res://scripts/main.gd" id="1_8rpgx"]
+[ext_resource type="PackedScene" uid="uid://n2arjj1oxikb" path="res://scenes/ball.tscn" id="2_lxtxj"]
+[ext_resource type="Script" uid="uid://cu5yplm6q0el4" path="res://scripts/p_paddle.gd" id="3_jyhfs"]
+[ext_resource type="Script" uid="uid://3rmf1ewx7qdt" path="res://scripts/o_paddle.gd" id="4_tbgi4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8gbba"]
 
@@ -48,10 +50,12 @@ text = "0"
 
 [node name="PlayerPaddle" parent="." instance=ExtResource("1_7re51")]
 position = Vector2(192, 324)
+script = ExtResource("3_jyhfs")
 
 [node name="OpponentPaddle" parent="." instance=ExtResource("1_7re51")]
 position = Vector2(960, 324)
 rotation = 3.14159
+script = ExtResource("4_tbgi4")
 
 [node name="Ball" parent="." instance=ExtResource("2_lxtxj")]
 position = Vector2(576, 324)

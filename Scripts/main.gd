@@ -18,12 +18,6 @@ func _process(delta):
 	ball.position += ball_direction * ball_speed * delta
 
 	# Player paddle movement
-	if Input.is_action_pressed("w"):
-		if (p_paddle.position.y>70):
-			p_paddle.move(delta, -1)
-	if Input.is_action_pressed("s"):
-		if (p_paddle.position.y<576):
-			p_paddle.move(delta, 1)
 
 	# Opponent paddle movement (simple AI)
 	if ball.position.x > 576 && abs(o_paddle.position.y-ball.position.y)>70:
@@ -33,6 +27,7 @@ func _process(delta):
 			o_paddle.move(delta, -1)
 	elif (o_paddle.position.y>70 && o_paddle.position.y<576):
 			o_paddle.move_to_centre(delta)
+
 	# Wall collisions
 	if ball.position.y < 0 or ball.position.y > get_viewport().size.y:
 		ball_direction.y = -ball_direction.y
