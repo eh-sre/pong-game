@@ -48,4 +48,4 @@ position = Vector2(576, 324)
 [node name="BallSpeedTimer" type="Timer" parent="."]
 wait_time = 5.5
 
-[connection signal="hit" from="Ball" to="." method="_on_ball_hit"]
+[connection signal="out_of_bounds" from="Ball" to="." method="_on_ball_out_of_bounds"]
