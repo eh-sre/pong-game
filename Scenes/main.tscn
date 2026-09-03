@@ -46,6 +46,6 @@ position = Vector2(576, 324)
 wait_time = 5.5
 autostart = true
 
-[connection signal="hit" from="Ball" to="." method="_on_ball_hit"]
 [connection signal="hit" from="Ball" to="." method="_on_ball_timer_timeout"]
+[connection signal="hit" from="Ball" to="." method="_on_ball_hit"]
 [connection signal="timeout" from="BallSpeedTimer" to="." method="_on_ball_speed_timer_timeout"]
