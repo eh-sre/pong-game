@@ -1,34 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://ivwnxfxi8fh0"]
+[gd_scene load_steps=4 format=3 uid="uid://4h1bum3b5nsl"]
 
-[ext_resource type="Texture2D" uid="uid://cjygibeg4xj2d" path="res://assets/Textures/bar.png" id="1_dh3r1"]
+[ext_resource type="Script" uid="uid://02ih4qqpecht" path="res://Scripts/paddle.gd" id="1_d3w87"]
+[ext_resource type="Texture2D" uid="uid://cjygibeg4xj2d" path="res://assets/Textures/bar.png" id="2_ytudu"]
 
-[sub_resource type="GDScript" id="GDScript_625gh"]
-script/source = "extends Node2D
-
-@export var paddle_speed = 300
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rripy"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ypqmy"]
 size = Vector2(20, 142)
 
-[node name="Paddle" type="Node2D"]
-script = SubResource("GDScript_625gh")
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_d3w87")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ypqmy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_rripy")
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
 scale = Vector2(8.88, 2.48)
-texture = ExtResource("1_dh3r1")
+texture = ExtResource("2_ytudu")
