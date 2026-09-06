@@ -4,13 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://cjygibeg4xj2d" path="res://assets/Textures/bar.png" id="2_ytudu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ypqmy"]
-size = Vector2(4, 142)
+size = Vector2(22, 142)
 
 [node name="paddle" type="CharacterBody2D" groups=["paddles"]]
 script = ExtResource("1_d3w87")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, 0)
 shape = SubResource("RectangleShape2D_ypqmy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
