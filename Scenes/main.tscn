@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dufl45af3uaya"]
+[gd_scene load_steps=9 format=3 uid="uid://dufl45af3uaya"]
 
 [ext_resource type="PackedScene" uid="uid://4h1bum3b5nsl" path="res://scenes/paddle.tscn" id="1_7re51"]
 [ext_resource type="Script" uid="uid://j5vi6j2r4sws" path="res://scripts/main.gd" id="1_8rpgx"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b55nd0lqb3eh1" path="res://scenes/wall.tscn" id="2_tefeu"]
 [ext_resource type="Script" uid="uid://cu5yplm6q0el4" path="res://scripts/p_paddle.gd" id="3_jyhfs"]
 [ext_resource type="Script" uid="uid://b1231k38lwwmx" path="res://scripts/score.gd" id="3_o6xl0"]
+[ext_resource type="LabelSettings" uid="uid://t261eoyrowvo" path="res://assets/new_label_settings.tres" id="3_tipki"]
 [ext_resource type="Script" uid="uid://3rmf1ewx7qdt" path="res://scripts/o_paddle.gd" id="4_tbgi4"]
 
 [node name="Game" type="Node2D"]
@@ -18,19 +19,23 @@ position = Vector2(576, -10)
 position = Vector2(576, 660)
 
 [node name="PlayerScore" type="Label" parent="."]
-offset_left = 476.0
+offset_left = 426.0
 offset_top = 20.0
-offset_right = 516.0
-offset_bottom = 43.0
+offset_right = 466.0
+offset_bottom = 54.0
 text = "0"
+label_settings = ExtResource("3_tipki")
+horizontal_alignment = 1
 script = ExtResource("3_o6xl0")
 
 [node name="OpponentScore" type="Label" parent="."]
-offset_left = 636.0
-offset_top = 20.0
-offset_right = 676.0
-offset_bottom = 43.0
+offset_left = 676.0
+offset_top = 19.0
+offset_right = 716.0
+offset_bottom = 53.0
 text = "0"
+label_settings = ExtResource("3_tipki")
+horizontal_alignment = 1
 script = ExtResource("3_o6xl0")
 
 [node name="PlayerPaddle" parent="." instance=ExtResource("1_7re51")]
@@ -54,6 +59,7 @@ offset_left = 476.0
 offset_top = 177.0
 offset_right = 676.0
 offset_bottom = 251.0
+label_settings = ExtResource("3_tipki")
 horizontal_alignment = 1
 vertical_alignment = 1
 

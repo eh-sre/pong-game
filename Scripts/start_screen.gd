@@ -2,11 +2,11 @@ extends Control
 
 
 func _on_start_game_button_pressed():
-	game.change_current_scene("res://Scenes/main.tscn")
+	game.change_current_scene("res://scenes/score_selection.tscn")
 
 
 func _on_settings_button_pressed():
-	game.change_current_scene("res://Settings/settings.tscn")
+	game.change_current_scene("res://settings/settings.tscn")
 	
 
 
