@@ -14,13 +14,11 @@ func _on_ball_out_of_bounds():
 	
 	reset()
 
-
 func reset():
 	ball.reset()
 	player_paddle.reset()
 	opponent_paddle.reset()
 	
-
 
 func _on_start_timer_timeout():
 	pass # Replace with function body.
