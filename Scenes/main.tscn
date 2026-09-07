@@ -63,5 +63,7 @@ label_settings = ExtResource("3_tipki")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="score_changed" from="PlayerScore" to="." method="_on_player_score_score_changed"]
+[connection signal="score_changed" from="OpponentScore" to="." method="_on_opponent_score_score_changed"]
 [connection signal="out_of_bounds" from="Ball" to="." method="_on_ball_out_of_bounds"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
