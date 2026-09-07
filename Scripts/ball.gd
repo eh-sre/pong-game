@@ -29,21 +29,17 @@ func _physics_process(delta):
 		# Wall collisions
 		if collider.is_in_group("walls"):
 			velocity *= 1.005
-			var angle = velocity.angle()
+			var speed = velocity.length()
 			var horizontal_direction = sign(velocity.x)
-			if horizontal_direction > 0:
-				angle = clamp(angle, deg_to_rad(-60), deg_to_rad(60))
-			else:
-				angle = clamp(angle, deg_to_rad(120), deg_to_rad(240))
-			velocity = Vector2.from_angle(angle) * velocity.length()
+			var angle = atan2(velocity.y, abs(velocity.x))+deg_to_rad([-20, -30, -10, 0, 10, 30, 20].pick_random())
+			angle = clamp(angle, deg_to_rad(-60), deg_to_rad(60))
+			velocity.x = horizontal_direction * speed * cos(angle)
+			velocity.y = speed * sin(angle)
 
 	# Score
 	if position.x < 0 or position.x > get_viewport().size.x:
 		out_of_bounds.emit()
 
-func rotate_ball(angle):
-	velocity = velocity.rotated(deg_to_rad(angle))
-	
 
 func reset():
 	var direction = [-1, 1].pick_random()

@@ -45,7 +45,7 @@ script = ExtResource("4_tbgi4")
 [node name="Ball" parent="." instance=ExtResource("2_lxtxj")]
 position = Vector2(576, 324)
 
-[node name="BallSpeedTimer" type="Timer" parent="."]
-wait_time = 5.5
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 3.0
 
 [connection signal="out_of_bounds" from="Ball" to="." method="_on_ball_out_of_bounds"]
