@@ -41,7 +41,6 @@ script = ExtResource("3_jyhfs")
 position = Vector2(960, 324)
 rotation = 3.14159
 script = ExtResource("4_tbgi4")
-paddle_speed = null
 
 [node name="Ball" parent="." instance=ExtResource("2_lxtxj")]
 position = Vector2(576, 324)

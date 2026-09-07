@@ -31,9 +31,9 @@ func reset():
 	start_label.visible = true
 
 func _on_start_timer_timeout():
-	ball.start()
 	start_label.text = "START"
-	await get_tree().create_timer(1.0).timeout
-	start_label.visible = false
+	ball.start()
 	player_paddle.active = true
 	opponent_paddle.active = true
+	await get_tree().create_timer(1.0).timeout
+	start_label.visible = false
