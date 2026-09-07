@@ -15,9 +15,9 @@ func _ready():
 func _process(_delta):
 	if not start_timer.is_stopped():
 		start_label.text = "%d" % ceil(start_timer.time_left)
-	if player_score.text == max_score:
+	if player_score.score >= max_score:
 		game_over("Player")
-	if opponent_score.text == max_score:
+	if opponent_score.score >= max_score:
 		game_over("Opponent")
 
 func _on_ball_out_of_bounds():
