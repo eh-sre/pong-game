@@ -49,11 +49,13 @@ position = Vector2(576, 324)
 wait_time = 3.0
 one_shot = true
 
-[node name="Label" type="Label" parent="."]
+[node name="StartLabel" type="Label" parent="."]
 offset_left = 476.0
 offset_top = 177.0
 offset_right = 676.0
 offset_bottom = 251.0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="out_of_bounds" from="Ball" to="." method="_on_ball_out_of_bounds"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

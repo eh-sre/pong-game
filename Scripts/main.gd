@@ -6,9 +6,14 @@ extends Node2D
 @onready var player_paddle = $PlayerPaddle
 @onready var opponent_paddle = $OpponentPaddle
 @onready var start_timer = $StartTimer
+@onready var start_label = $StartLabel
 
 func _ready():
 	start_timer.start()
+
+func _process(delta):
+	if not start_timer.is_stopped():
+		start_label.text = str(int(start_timer.time_left))
 
 func _on_ball_out_of_bounds():
 	if ball.position.x < 0:
@@ -23,7 +28,8 @@ func reset():
 	player_paddle.reset()
 	opponent_paddle.reset()
 	start_timer.start()
-	
+	start_label.visible = true
 
 func _on_start_timer_timeout():
 	ball.start()
+	start_label.visible = false
