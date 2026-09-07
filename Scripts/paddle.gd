@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var paddle_speed = 300
+var active = false
 
 func move(delta, direction):
 	position.y += direction*paddle_speed*delta
@@ -10,3 +11,4 @@ func move_to_centre(delta):
 
 func reset():
 	position.y = 324
+	active = false

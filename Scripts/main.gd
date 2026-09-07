@@ -13,7 +13,7 @@ func _ready():
 
 func _process(delta):
 	if not start_timer.is_stopped():
-		start_label.text = str(int(start_timer.time_left))
+		start_label.text = "%d" % ceil(start_timer.time_left)
 
 func _on_ball_out_of_bounds():
 	if ball.position.x < 0:
@@ -32,4 +32,8 @@ func reset():
 
 func _on_start_timer_timeout():
 	ball.start()
+	start_label.text = "START"
+	await get_tree().create_timer(1.0).timeout
 	start_label.visible = false
+	player_paddle.active = true
+	opponent_paddle.active = true
