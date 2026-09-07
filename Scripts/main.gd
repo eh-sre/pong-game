@@ -26,4 +26,4 @@ func reset():
 	
 
 func _on_start_timer_timeout():
-	print("Hello")
+	ball.start()
