@@ -5,6 +5,10 @@ extends Node2D
 @onready var opponent_score = $OpponentScore
 @onready var player_paddle = $PlayerPaddle
 @onready var opponent_paddle = $OpponentPaddle
+@onready var start_timer = $StartTimer
+
+func _ready():
+	start_timer.start()
 
 func _on_ball_out_of_bounds():
 	if ball.position.x < 0:
@@ -18,7 +22,8 @@ func reset():
 	ball.reset()
 	player_paddle.reset()
 	opponent_paddle.reset()
+	start_timer.start()
 	
 
 func _on_start_timer_timeout():
-	pass # Replace with function body.
+	print("Hello")

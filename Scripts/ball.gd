@@ -3,10 +3,10 @@ extends CharacterBody2D
 @export var ball_speed = 300
 signal out_of_bounds
 
-func _ready():
+func start():
 	var direction = [-1, 1].pick_random()
 	var vertical_direction = randf_range(-1, 1)
-	velocity = Vector2(direction, vertical_direction).normalized()*ball_speed
+	velocity = Vector2(direction, vertical_direction).normalized() * ball_speed
 
 # Ball movement
 func _physics_process(delta):
@@ -40,9 +40,6 @@ func _physics_process(delta):
 	if position.x < 0 or position.x > get_viewport().size.x:
 		out_of_bounds.emit()
 
-
 func reset():
-	var direction = [-1, 1].pick_random()
-	var vertical_direction = randf_range(-1, 1)
-	velocity = Vector2(direction, vertical_direction).normalized() * ball_speed
 	position = get_viewport().size / 2
+	velocity = Vector2.ZERO
