@@ -7,7 +7,7 @@ extends Node2D
 @onready var opponent_paddle = $OpponentPaddle
 @onready var start_timer = $StartTimer
 @onready var start_label = $StartLabel
-var max_score = game.max_score
+var max_score: int = game.max_score
 
 func _ready():
 	start_timer.start()
@@ -36,12 +36,10 @@ func _on_start_timer_timeout():
 
 func _on_opponent_score_score_changed(new_score):
 	if new_score >= max_score:
-		print("Opponent")
 		game_over("Opponent")
 
 func _on_player_score_score_changed(new_score):
 	if new_score >= max_score:
-		print("Player")
 		game_over("Player")
 
 func reset():
@@ -52,7 +50,6 @@ func reset():
 	start_label.visible = true
 
 func game_over(winner):
-	print("Hello")
 	start_label.visible = true
 	start_label.text = "Game over\n%s wins" % winner
 	await get_tree().create_timer(1.0).timeout
