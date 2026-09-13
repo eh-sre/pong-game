@@ -3,7 +3,7 @@ extends Node
 @onready var tree := get_tree()
 @onready var root := tree.get_root()
 
-var max_score = 5
+var max_score: int = 5
 
 func get_current_scene():
 	return tree.current_scene

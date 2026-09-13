@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 @export var paddle_speed = 300
-var active = false
+var bounce: int = 0
+var active: bool = false
 
 func move(delta, direction):
 	position.y += direction*paddle_speed*delta
