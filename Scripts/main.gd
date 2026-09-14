@@ -34,11 +34,11 @@ func _on_start_timer_timeout():
 	await get_tree().create_timer(1.0).timeout
 	start_label.visible = false
 
-func _on_opponent_score_score_changed(new_score):
+func _on_opponent_score_score_changed(new_score: int):
 	if new_score >= max_score:
 		game_over("Opponent")
 
-func _on_player_score_score_changed(new_score):
+func _on_player_score_score_changed(new_score: int):
 	if new_score >= max_score:
 		game_over("Player")
 
@@ -49,7 +49,7 @@ func reset():
 	start_timer.start()
 	start_label.visible = true
 
-func game_over(winner):
+func game_over(winner: String):
 	start_label.visible = true
 	start_label.text = "Game over\n%s wins" % winner
 	await get_tree().create_timer(1.0).timeout
