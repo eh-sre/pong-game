@@ -53,4 +53,4 @@ func game_over(winner: String):
 	start_label.visible = true
 	start_label.text = "Game over\n%s wins" % winner
 	await get_tree().create_timer(1.0).timeout
-	game.change_current_scene("res://scenes/start_screen.tscn")
+	game.change_current_scene("res://scenes/game_over.tscn")
