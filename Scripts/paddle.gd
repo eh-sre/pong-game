@@ -11,5 +11,5 @@ func move_to_centre(delta):
 	position.y = move_toward(position.y, 324, paddle_speed*delta)
 
 func reset():
-	position.y = 324
-	active = false
+		position.y = 324
+		active = false
