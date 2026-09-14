@@ -12,4 +12,4 @@ func move_to_centre(delta):
 
 func reset():
 	position.y = 324
-	active = false	
+	active = false

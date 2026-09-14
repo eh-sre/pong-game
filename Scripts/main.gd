@@ -13,10 +13,11 @@ func _ready():
 	start_timer.start()
 
 func _process(_delta):
-	if not start_timer.is_stopped():
-		start_label.text = "%d" % ceil(start_timer.time_left)
+	start_label.text = "%d" % ceil(start_timer.time_left)
 
 func _on_ball_out_of_bounds():
+	player_paddle.active = false
+	opponent_paddle.active = false
 	if ball.position.x < 0:
 		opponent_score.add_point()
 	elif ball.position.x > get_viewport().size.x:
@@ -27,6 +28,7 @@ func _on_ball_out_of_bounds():
 	reset()
 
 func _on_start_timer_timeout():
+	set_process(false)
 	start_label.text = "START"
 	ball.start()
 	player_paddle.active = true
@@ -48,6 +50,7 @@ func reset():
 	opponent_paddle.reset()
 	start_timer.start()
 	start_label.visible = true
+	set_process(true)
 
 func game_over(winner: String):
 	start_label.visible = true
